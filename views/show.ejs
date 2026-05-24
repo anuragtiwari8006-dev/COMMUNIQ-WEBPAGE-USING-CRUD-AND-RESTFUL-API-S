@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/posts">Communi<span>Q</span></a>
+      <a class="add-btn" href="/posts">← Back to Posts</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Post <em>Detail</em></h1>
+    <p>Reading the full post below.</p>
+  </section>
+
+  <main class="feed">
+    <article class="post-card">
+
+      <div class="card-top">
+        <div class="avatar"><%= post.username[0] %></div>
+        <div class="author-info">
+          <div class="author-name">@<%= post.username %></div>
+          <div class="author-label">Post ID: <%= post.id %></div>
+        </div>
+        <span class="community-badge">Post</span>
+      </div>
+
+      <p class="post-content" style="-webkit-line-clamp:unset; overflow:visible;">
+        <%= post.content %>
+      </p>
+
+      <div class="card-actions">
+        <a class="btn btn-edit" href="/posts/<%= post.id %>/edit">Edit Post</a>
+        <form class="delete-form" method="post" action="/posts/<%= post.id %>?_method=DELETE">
+          <button class="btn btn-delete" type="submit">Delete Post</button>
+        </form>
+      </div>
+
+    </article>
+  </main>
+
+</body>
+</html>
